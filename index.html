@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <script
+      src="https://kit.fontawesome.com/870e872a87.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Checkout</h1>
+    <main>
+      <form>
+        <section class="contact">
+          <h2>Contact Information</h2>
+          <label for="Email">Email</label><br />
+          <i class="fa-solid fa-envelope"></i>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your mail.."
+          /><br />
+
+          <label for="phone">Phone</label><br />
+          <i class="fa-solid fa-phone"></i>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Enter your phone"
+          />
+        </section>
+        <br /><br /><br />
+        <section class="Shipping">
+          <h2>Shipping Adress</h2>
+          <label for="name">Full name</label><br />
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Enter your Full name.." /><br />
+          <label for="adres">Adress</label><br />
+          <i class="fa-solid fa-house"></i>
+          <input type="text" placeholder="Enter your adress.." /><br />
+          <label for="city">City</label><br />
+          <i class="fa-solid fa-city"></i>
+          <input type="text" placeholder="Enter your city.." />
+        </section>
+        <div class="country_postCode">
+          <div class="country">
+            <label for="country">Country</label><br />
+            <i class="fa-solid fa-earth-europe"></i>
+            <select name="country" id="country">
+              <label for="country">Turkey</label>
+              <option value="Turkey">Turkey</option>
+              <option value="USA">USA</option>
+              <option value="German">German</option>
+              <option value="France">France</option>
+              <option value="England">England</option>
+            </select>
+          </div>
+          <div class="post_code">
+            <label for="Post_Code">Post Code</label><br />
+            <i class="fa-solid fa-envelopes-bulk"></i>
+            <input
+              type="text"
+              name="post"
+              id="post"
+              placeholder="Enter your postal code.."
+            />
+          </div>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="checkbox" id="checkbox" />
+          <label for="checkbox">See this information next time</label>
+        </div>
+      </form>
+
+      <section class="img">
+        <div class="image img1">
+          <img src="./img/photo1.png" alt="Backbag" />
+          <div class="info">
+            <p>Vintage Backbag</p>
+            <p class="cost">
+              $54.99 <span><del>$94.99</del></span>
+            </p>
+            <div class="button">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+        <div class="image img2">
+          <img src="./img/photo2.png" alt="Shoes" />
+          <div class="info">
+            <p>Levi Shoes</p>
+            <p class="cost">
+              $74.99 <span><del>$124.99</del></span>
+            </p>
+            <div class="button">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <div class="foot foot1">Shipping <span>$19</span></div>
+          <div class="foot foot2">Total <span>$148.98</span></div>
+        </footer>
+      </section>
+    </main>
+    <input type="submit" value="Continue" />
+  </body>
+</html>
