@@ -22,7 +22,7 @@
 // function recurse(a) {
 //   for (let i = 0; i < ls.length; i++) {
 //     total += ls[i];
-//     //   ls.shift();
+//   ls.shift();
 //   }
 //   result.push(total);
 //   let ls = ls.shift();
@@ -114,58 +114,70 @@
 //   }
 // }
 
-let incrementButton = document.getElementsByClassName("inc");
-let decrementButton = document.getElementsByClassName("dec");
+// let incrementButton = document.getElementsByClassName("inc");
+// let decrementButton = document.getElementsByClassName("dec");
 
-console.log(decrementButton);
-for (let i = 0; i < incrementButton.length; i++) {
-  let button = incrementButton[i];
-  button.addEventListener("click", function (event) {
-    let buttonClicked = event.target;
-    console.log(buttonClicked);
-    let incrementNumber = buttonClicked.parentElement.children[1].innerHTML;
-    console.log(incrementNumber);
-    // console.log(typeof incrementNumber);
-    let newincrementNumber = parseInt(incrementNumber) + 1;
-    // incrementNumber = newincrementNumber;
-    buttonClicked.parentElement.children[1].innerText = newincrementNumber;
-    console.log(newincrementNumber);
+// console.log(decrementButton);
+// for (let i = 0; i < incrementButton.length; i++) {
+//   let button = incrementButton[i];
+//   button.addEventListener("click", function (event) {
+//     let buttonClicked = event.target;
+//     console.log(buttonClicked);
+//     let incrementNumber = buttonClicked.parentElement.children[1].innerHTML;
+//     console.log(incrementNumber);
+// console.log(typeof incrementNumber);
+//     let newincrementNumber = parseInt(incrementNumber) + 1;
+// incrementNumber = newincrementNumber;
+//     buttonClicked.parentElement.children[1].innerText = newincrementNumber;
+//     console.log(newincrementNumber);
 
-    //** Cost seciton */
-    let input = buttonClicked.parentElement.parentElement.children[1];
-    let inputInnertext = input.innerText.slice(1);
-    let newValue = parseFloat(inputInnertext).toFixed(2);
-    let lastValue = inputInnertext * newincrementNumber;
-    buttonClicked.parentElement.parentElement.children[1].innerText =
-      "$" + lastValue;
-  });
-}
+//     //** Cost seciton */
+//     let input = buttonClicked.parentElement.parentElement.children[1];
+//     let inputInnertext = input.innerText.slice(1);
+//     let newValue = parseFloat(inputInnertext).toFixed(2);
+//     let lastValue = inputInnertext * newincrementNumber;
+//     buttonClicked.parentElement.parentElement.children[1].innerText =
+//       "$" + lastValue;
+//   });
+// }
 // Decrement
 
-for (let i = 0; i < decrementButton.length; i++) {
-  let button = decrementButton[i];
-  button.addEventListener("click", function (event) {
-    let buttonClicked = event.target;
-    console.log(buttonClicked);
-    let incrementNumber = buttonClicked.parentElement.children[1].innerHTML;
-    console.log(incrementNumber);
-    // console.log(typeof incrementNumber);
-    let newincrementNumber = parseInt(incrementNumber) - 1;
-    // incrementNumber = newincrementNumber;
-    buttonClicked.parentElement.children[1].innerText = newincrementNumber;
-    console.log(newincrementNumber);
-    // Cost seciton
-    let input = buttonClicked.parentElement.parentElement.children[1];
-    let inputInnertext = input.innerText.slice(1);
-    console.log(inputInnertext);
-    let newValue = parseFloat(inputInnertext).toFixed(2);
-    let lastValue = inputInnertext * newincrementNumber;
-    console.log(lastValue);
-    buttonClicked.parentElement.parentElement.children[1].innerText =
-      "$" + lastValue;
-    if (lastValue <= 0) {
-      return (buttonClicked.parentElement.parentElement.children[1].innerText =
-        "$" + 0);
-    }
-  });
-}
+// for (let i = 0; i < decrementButton.length; i++) {
+//   let button = decrementButton[i];
+//   button.addEventListener("click", function (event) {
+//     let buttonClicked = event.target;
+//     console.log(buttonClicked);
+//     let incrementNumber = buttonClicked.parentElement.children[1].innerHTML;
+//     console.log(incrementNumber);
+// console.log(typeof incrementNumber);
+//     let newincrementNumber = parseInt(incrementNumber) - 1;
+// incrementNumber = newincrementNumber;
+//     buttonClicked.parentElement.children[1].innerText = newincrementNumber;
+//     console.log(newincrementNumber);
+// Cost seciton
+//     let input = buttonClicked.parentElement.parentElement.children[1];
+//     let inputInnertext = input.innerText.slice(1);
+//     console.log(inputInnertext);
+//     let newValue = parseFloat(inputInnertext).toFixed(2);
+//     let lastValue = inputInnertext * newincrementNumber;
+//     console.log(lastValue);
+//     buttonClicked.parentElement.parentElement.children[1].innerText =
+//       "$" + lastValue;
+//     if (lastValue <= 0) {
+//       return (buttonClicked.parentElement.parentElement.children[1].innerText =
+//         "$" + 0);
+//     }
+//   });
+// }
+let product = document.querySelector(".img");
+product.addEventListener("click", (event) => {
+  if (event.target.className == "dec") {
+    console.log("minus button clicked");
+  } else if (event.target.classList.contains("inc")) {
+    console.log("plus button clicked");
+  } else if (event.target.classList.contains("reset")) {
+    console.log("reset button clicked");
+  } else {
+    console.log("other button clicked");
+  }
+});
