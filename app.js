@@ -172,10 +172,13 @@
 let product = document.querySelector(".img");
 product.addEventListener("click", (event) => {
   if (event.target.className == "dec") {
+    event.target.previousElementSibling.innerText--;
     console.log("minus button clicked");
   } else if (event.target.classList.contains("inc")) {
+    event.target.nextElementSibling.innerText++;
     console.log("plus button clicked");
   } else if (event.target.classList.contains("reset")) {
+    event.target.parentElement.parentElement.remove();
     console.log("reset button clicked");
   } else {
     console.log("other button clicked");
