@@ -169,18 +169,77 @@
 //     }
 //   });
 // }
+const taxRate = 0.18;
+const shippingPrice = 15;
+
+window.addEventListener("load", () => {
+  localStorage.setItem("taxRate", taxRate);
+  localStorage.setItem("shippingPrice", shippingPrice);
+
+  //   sessionStorage.setItem("taxRate", taxRate);
+  //   sessionStorage.setItem("shippingPrice", shippingPrice);
+});
+
 let product = document.querySelector(".img");
+
 product.addEventListener("click", (event) => {
   if (event.target.className == "dec") {
-    event.target.previousElementSibling.innerText--;
+    if (event.target.previousElementSibling.innerText > 1) {
+      event.target.previousElementSibling.innerText--;
+      calculateProductAndCardTotal(event.target.parentElement.parentElement);
+    } else {
+      if (confirm("Product will remove")) {
+        event.target.parentElement.parentElement.parentElement.remove();
+        calculateCardTotal();
+      }
+    }
+
     console.log("minus button clicked");
   } else if (event.target.classList.contains("inc")) {
     event.target.nextElementSibling.innerText++;
-    console.log("plus button clicked");
+
+    calculateProductAndCardTotal(event.target.parentElement.parentElement);
+    // console.log("plus button clicked");
   } else if (event.target.classList.contains("reset")) {
     event.target.parentElement.parentElement.remove();
-    console.log("reset button clicked");
+    calculateCardTotal();
+    // console.log("reset button clicked");
   } else {
-    console.log("other button clicked");
+    // console.log("other button clicked");
   }
 });
+
+//calculate cart and product totals
+const calculateProductAndCardTotal = (productInfoDıv) => {
+  //product calculation
+  console.log(productInfoDıv);
+  let price = productInfoDıv.querySelector(".cost").innerText;
+  console.log(price);
+
+  let quantity = productInfoDıv.querySelector("#sonuc").innerText;
+  console.log(quantity);
+
+  let productTotalDıv = (price * quantity).toFixed(2);
+  console.log(productTotalDıv);
+  productInfoDıv.querySelector(".imageTotal").innerText = productTotalDıv;
+  // productInfoDıv.parentElement.parentElement.querySelector(
+  //   ".foot2"
+  // ).lastElementChild.innerText = productTotalDıv;
+  //cart calculation
+  calculateCardTotal();
+};
+
+const calculateCardTotal = () => {
+  let productTotalPriceDivs = document.querySelectorAll(".imageTotal");
+  console.log(productTotalPriceDivs);
+  let subtotal = 0;
+  productTotalPriceDivs.forEach((eachProductTotalPriceDiv) => {
+    subtotal += parseFloat(eachProductTotalPriceDiv.innerText);
+    document.querySelector(".foot2").lastElementChild.innerHTML =
+      subtotal.toFixed(2);
+  });
+  if (document.querySelector(".image") == null) {
+    document.querySelector(".foot2").lastElementChild.innerHTML = 0;
+    document.querySelector(".foot1").firstElementChild.innerHTML = 0;
+  }
+};
