@@ -1,5 +1,5 @@
 # Html-CSS-Form
-[Click me](https://miracerdin.github.io/Html-CSS-Form/)
+[Click me](https://html-css-form-liard.vercel.app/)
 There is a form page with a selection menu.
-This work was created only husing html and css. 
+I used html, css and javascript in this project. 
 Mostly i used flexbox.
